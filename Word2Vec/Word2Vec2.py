@@ -2,7 +2,6 @@ import tensorflow as tf
 import numpy as np
 """word2vec将词转化为词向量
    以下代码是源码
-   博客网址https://blog.csdn.net/qq_41076797/article/details/99690725
    """
 
 # 1.定义一个函数用来下载数据集
