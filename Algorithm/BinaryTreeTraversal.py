@@ -26,14 +26,20 @@ def preorder_traversal_recursive(root):     # recursive: adj.递归的
 
 """前序遍历，非递归"""
 def preorder_traversal_non_recursive(root):
-    node_list = [root]      # 创建一个列表用于存储节点
-    while len(node_list) > 0:
-        print(root.value)
-        if root.right is not None:
-            node_list.append(root.right)
-        if root.left is not None:
-            node_list.append(root.left)
-        node_list.pop()
+    """借助栈实现前序遍历
+    """
+    if root == None:
+        return
+    stack = []
+    while root or len(stack) > 0:
+        if root:
+            stack.append(root)
+            print(root.value)
+            root = root.left
+        else:
+            root = stack[-1]
+            stack.pop()
+            root = root.right
 
 
 """中序遍历，递归"""
