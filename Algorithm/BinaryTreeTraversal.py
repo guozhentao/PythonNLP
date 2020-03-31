@@ -83,14 +83,15 @@ def postorder_traversal_recursive(root):
 def postorder_traversal_non_recursive(root):
     node_list1 = [root]
     node_list2 = []
-    while len(node_list1)>0:
+    while len(node_list1) > 0:
         node = node_list1.pop()
+        if node.left is not None:
+            node_list1.append(node.left)
+        if node.right is not None:
+            node_list2.append(node.right)
         node_list2.append(node)
-        if root.left is not None:
-            node_list1.append(root.left)
-        if root.right is not None:
-            node_list2.append(root.right)
-    while len(node_list2)>0:
+
+    while len(node_list2) > 0:
         print(node_list2.pop().value)
 
 
