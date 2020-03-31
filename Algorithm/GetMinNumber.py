@@ -32,6 +32,18 @@ def string_sort(mylist):     # mylist是一个列表，里面的元素是字符�
     return string_sort(less) + [midValue] + string_sort(greater)
 
 
+
+# 如果使用python2.7，代码如下
+def print_min_number(array):
+    if array == []:
+        return 
+    else:
+        str_nums = [str(i) for i in array]
+        str_nums.sort(cmp = lambda x, y : int(x+y)-int(y+x))
+        return int(''.join(str_nums))
+    
+    
+
 li = [3, 32, 321]
 num = get_min_number(li)
 print(num)
