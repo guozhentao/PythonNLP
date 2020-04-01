@@ -61,8 +61,8 @@ class NMTModel(object):
         with tf.variable_scope('encoder'):
             enc_outputs, enc_state = tf.nn.dynamic_rnn(cell=self.enc_cell, inputs=src_emb,
                                                        sequence_length=src_size, dtype=tf.float32)
-            # 设置解码器的最大步数。这是为了避免在极端情况下出现无限循环的问题
-            MAX_DEC_LEN = 100
+        # 设置解码器的最大步数。这是为了避免在极端情况下出现无限循环的问题
+        MAX_DEC_LEN = 100
 
         with tf.variable_scope('decoder/rnn/multi_rnn_cell'):
 
@@ -129,11 +129,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
