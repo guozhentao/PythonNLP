@@ -81,15 +81,16 @@ def postorder_traversal_recursive(root):
 # 第二个栈为第一个栈的每个弹出依次进栈
 # 最后第二个栈依次出栈
 def postorder_traversal_non_recursive(root):
-    node_list1 = [root]
+    node_list1 = [root]     # 存放的是节点
     node_list2 = []
     while len(node_list1) > 0:
         node = node_list1.pop()
+        node_list2.append(node)
+
         if node.left is not None:
             node_list1.append(node.left)
         if node.right is not None:
-            node_list2.append(node.right)
-        node_list2.append(node)
+            node_list1.append(node.right)
 
     while len(node_list2) > 0:
         print(node_list2.pop().value)
